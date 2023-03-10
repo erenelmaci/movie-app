@@ -46,7 +46,7 @@ const MovieCard = () => {
       </div>
 
       <Link to="/move-detail">
-        <Row className="justify-content-center">
+        <Row className="d-flex justify-content-center w-100">
           <Col
             className="d-flex justify-content-center"
             xs={12}

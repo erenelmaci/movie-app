@@ -1,5 +1,4 @@
 .book {
-  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +23,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   color: #000;
+  text-decoration: none;
 }
 
 .cover {
