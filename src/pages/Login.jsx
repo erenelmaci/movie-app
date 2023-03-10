@@ -102,9 +102,9 @@ const Login = () => {
             <span>Sign In</span>
           </button>
           <div className="separator">
-            <hr className="line" />
+            <hr/>
             <span>Or</span>
-            <hr className="line" />
+            <hr/>
           </div>
           <button
             onClick={handleClick}
