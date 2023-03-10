@@ -1,29 +1,24 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app"
-import { getAnalytics } from "firebase/analytics"
-import { getAuth } from "firebase/auth"
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getAuth} from "firebase/auth"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-require("dotenv").config()
-
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
-}
+  apiKey: "AIzaSyCdtysYqJCQK_LoT3g4oh_D6A01ajcdge0",
+  authDomain: "movie-app-c7693.firebaseapp.com",
+  projectId: "movie-app-c7693",
+  storageBucket: "movie-app-c7693.appspot.com",
+  messagingSenderId: "751973066840",
+  appId: "1:751973066840:web:ca57bf29b3886b71b1c22d",
+  measurementId: "G-J6RB6TH2SZ"
+};
 
-console.log(firebaseConfig.apiKey)
-console.log(firebaseConfig.authDomain)
-console.log(firebaseConfig.projectId)
-console.log(firebaseConfig.storageBucket)
-console.log(firebaseConfig.messagingSenderId)
-console.log(firebaseConfig.appId)
-console.log(firebaseConfig.measurementId)
-
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 export const auth = getAuth(app)

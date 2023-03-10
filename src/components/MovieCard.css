@@ -1,0 +1,84 @@
+.book {
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: fit-content;
+  height: fit-content;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #000;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: lightgray;
+  width: 15rem;
+  height: 25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-81deg);
+  -ms-transform: rotatey(-81deg);
+  transform: rotatey(-81deg);
+}
+p {
+  padding-top: 1rem;
+  border-radius: 10px;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  font-weight: bolder;
+}
+h4 {
+  padding-top: .5rem;
+  padding-left: 1rem;
+  text-align: center;
+}
+.comment {
+  display: flex;
+  width: 15rem;
+  height: 25rem;
+  flex-direction: column;
+}
+.posters-img {
+  width: 15rem;
+  height: 25rem;
+  border-radius: 10px;
+}

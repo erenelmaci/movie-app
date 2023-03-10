@@ -1,10 +1,10 @@
 import "./App.css"
-import FireBase from "./auth/firebase-config"
+import Router from "./router/Router"
 
 function App() {
   return (
     <div className="App">
-      <FireBase />
+      <Router />
     </div>
   )
 }
