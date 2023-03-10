@@ -14,7 +14,15 @@ const AuthContext = () => {
   }
   const app = initializeApp(firebaseConfig)
   const analytics = getAnalytics(app)
-  return <div></div>
+  return (
+    <div>
+      <h1>{firebaseConfig.apiKey}</h1>
+      <h1>{firebaseConfig.authDomain}</h1>
+      <h1>{firebaseConfig.projectId}</h1>
+      <h1>{firebaseConfig.storageBucket}</h1>
+      <h1>{firebaseConfig.messagingSenderId}</h1>
+    </div>
+  )
 }
 
 export default AuthContext
