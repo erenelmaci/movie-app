@@ -45,7 +45,7 @@ const MovieCard = () => {
         </Button>
       </div>
 
-      <Link to="/move-detail">
+      <Link to="/movie-detail">
         <Row className="d-flex justify-content-center w-100">
           <Col
             className="d-flex justify-content-center"
