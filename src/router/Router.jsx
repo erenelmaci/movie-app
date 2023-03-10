@@ -1,14 +1,23 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Header from "../components/Header"
-import MovieCard from "../components/MovieCard"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Main from "../pages/Main"
+import Login from "../pages/Login"
+import Register from "../pages/Register"
+import MovieDetail from "../pages/MovieDetail"
 
 const Router = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <MovieCard />
-    </>
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/move-detail" element={<MovieDetail />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
