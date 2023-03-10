@@ -65,6 +65,7 @@ const MovieCard = () => {
             </div>
           </Col>
         </Row>
+        <MovieDetail />
       </Link>
     </>
   )
