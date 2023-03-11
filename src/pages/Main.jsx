@@ -5,6 +5,8 @@ import MovieCard from "../components/MovieCard"
 import { Button } from "react-bootstrap"
 import Form from "react-bootstrap/Form"
 import { Link } from "react-router-dom"
+import "../styles/MovieCard.css"
+
 
 const Main = () => {
   const [movies, setMovies] = useState([])
@@ -40,8 +42,8 @@ const Main = () => {
           Search
         </Button>
       </div>
-      <div className="d-flex justify-content-center align-items-center">
-        <Row md={6} lg={4} xl={12} className="g-4">
+      <div className="card-container d-flex justify-content-center align-items-center">
+        <Row md={6} lg={4} xl={12} className="card-container g-4">
           {movies.map((movie) => (
             <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
               <Col

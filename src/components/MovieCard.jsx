@@ -6,7 +6,7 @@ const MovieCard = ({ poster, overview, title }) => {
       <div className="book">
         <div className="comment">
           <h4>{title}</h4>
-          <p>{overview}</p>
+          <p className="overview">{overview}</p>
         </div>
         <div className="cover">
           <img
