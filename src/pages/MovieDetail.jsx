@@ -1,7 +1,7 @@
-const MovieDetail = () => {
+const MovieDetail = ({ id }) => {
   return (
     <div>
-      <h1>afdadfga</h1>
+      <h1></h1>
     </div>
   )
 }

@@ -11,7 +11,8 @@ const Main = () => {
   const [movies, setMovies] = useState([])
   const [movieQuery, setMovieQuery] = useState("")
 
-  const handleClick = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     const theMovieApiKey = process.env.REACT_APP_THEMOVIE_API_KEY
     const URL = `https://api.themoviedb.org/3/search/movie?api_key=${theMovieApiKey}&query=${movieQuery}`
     try {
@@ -30,7 +31,7 @@ const Main = () => {
       try {
         const response = await axios.get(URL)
         setMovies(response.data.results)
-        // console.log(response.data.results)
+        console.log(response.data)
       } catch (error) {
         console.log(error)
       }
@@ -40,9 +41,10 @@ const Main = () => {
 
   return (
     <>
-      <div
+      <form
         style={{ height: "5rem" }}
         className="d-flex justify-content-center mt-4"
+        onSubmit={handleSubmit}
       >
         <Form.Control
           style={{ height: "2.5rem" }}
@@ -52,13 +54,13 @@ const Main = () => {
           onChange={(e) => setMovieQuery(e.target.value)}
         />
         <Button
-          onClick={handleClick}
+          onClick={handleSubmit}
           style={{ height: "2.5rem" }}
           variant="warning"
         >
           Search
         </Button>
-      </div>
+      </form>
       <div className="card-container d-flex justify-content-center align-items-center">
         <Row xs={1} md={2} lg={3} xl={5} xxl={5} className="card-container g-4">
           {movies.map((movie) => (

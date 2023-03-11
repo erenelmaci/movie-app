@@ -1,6 +1,6 @@
 import "../styles/MovieCard.css"
 
-const MovieCard = ({ poster, overview, title }) => {
+const MovieCard = ({ poster, overview, title}) => {
   return (
     <>
       <div className="book">
