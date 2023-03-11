@@ -7,9 +7,21 @@ import Form from "react-bootstrap/Form"
 import { Link } from "react-router-dom"
 import "../styles/MovieCard.css"
 
-
 const Main = () => {
   const [movies, setMovies] = useState([])
+  const [movieQuery, setMovieQuery] = useState("")
+
+  const handleClick = async () => {
+    const theMovieApiKey = process.env.REACT_APP_THEMOVIE_API_KEY
+    const URL = `https://api.themoviedb.org/3/search/movie?api_key=${theMovieApiKey}&query=${movieQuery}`
+    try {
+      const response = await axios.get(URL)
+      setMovies(response.data.results)
+      console.log(response.data.results)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,14 +30,14 @@ const Main = () => {
       try {
         const response = await axios.get(URL)
         setMovies(response.data.results)
-        console.log(response.data.results)
+        // console.log(response.data.results)
       } catch (error) {
         console.log(error)
       }
     }
     fetchData()
   }, [])
-  
+
   return (
     <>
       <div
@@ -37,8 +49,13 @@ const Main = () => {
           className="w-25 d-flex justify-center allign-center bg-dark text-white"
           type="text"
           placeholder="Readonly input here..."
+          onChange={(e) => setMovieQuery(e.target.value)}
         />
-        <Button style={{ height: "2.5rem" }} variant="warning">
+        <Button
+          onClick={handleClick}
+          style={{ height: "2.5rem" }}
+          variant="warning"
+        >
           Search
         </Button>
       </div>
