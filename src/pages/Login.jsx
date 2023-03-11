@@ -1,11 +1,11 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
 
+
 const Login = () => {
   const handleClick = (e) => {
     e.preventDefault()
   }
-
   return (
     <>
       <div className="d-flex justify-content-center mt-4">

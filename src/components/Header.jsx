@@ -18,6 +18,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/login">
                 Login
               </Nav.Link>
+              <Nav.Link as={Link} to="/login">
+                Logout
+              </Nav.Link>
               <Nav.Link as={Link} to="/register" eventKey={2}>
                 Register
               </Nav.Link>

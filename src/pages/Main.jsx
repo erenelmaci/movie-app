@@ -25,7 +25,7 @@ const Main = () => {
     }
     fetchData()
   }, [])
-
+  
   return (
     <>
       <div
@@ -43,9 +43,9 @@ const Main = () => {
         </Button>
       </div>
       <div className="card-container d-flex justify-content-center align-items-center">
-        <Row md={6} lg={4} xl={12} className="card-container g-4">
+        <Row xs={1} md={2} lg={3} xl={5} xxl={5} className="card-container g-4">
           {movies.map((movie) => (
-            <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
+            <Link key={movie.id} to={`/movie-detail`}>
               <Col
                 className="d-flex justify-content-center align-items-center"
                 key={movie.id}

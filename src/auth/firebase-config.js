@@ -1,24 +1,92 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import {getAuth} from "firebase/auth"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// import { initializeApp } from "firebase/app"
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   sendPasswordResetEmail,
+//   signOut,
+//   signInWithPopup,
+//   GoogleAuthProvider,
+// } from "firebase/auth"
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCdtysYqJCQK_LoT3g4oh_D6A01ajcdge0",
-  authDomain: "movie-app-c7693.firebaseapp.com",
-  projectId: "movie-app-c7693",
-  storageBucket: "movie-app-c7693.appspot.com",
-  messagingSenderId: "751973066840",
-  appId: "1:751973066840:web:ca57bf29b3886b71b1c22d",
-  measurementId: "G-J6RB6TH2SZ"
-};
+// const firebaseConfig = {
+//   apiKey: process.env.REACT_APP_API_KEY,
+//   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+//   projectId: process.env.REACT_APP_PROJECT_ID,
+//   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+//   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+//   appId: process.env.REACT_APP_APP_ID,
+//   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+// }
+// const app = initializeApp(firebaseConfig)
+// const auth = getAuth()
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const AuthContext = () => {
+//   const provider = new GoogleAuthProvider()
 
-export const auth = getAuth(app)
+//   const sendPasswordReset = (email) => {
+//     sendPasswordResetEmail(auth, email)
+//       .then(() => {
+//         // Password reset email sent!
+//       })
+//       .catch((error) => {
+//         const errorMessage = error.message
+//         // ..
+//       })
+//   }
+
+//   const signOutUser = () => {
+//     signOut(auth)
+//       .then(() => {
+//         // Sign-out successful.
+//       })
+//       .catch((error) => {
+//         // An error happened.
+//       })
+//   }
+
+//   const signInWithGoogle = () => {
+//     signInWithPopup(auth, provider)
+//       .then((result) => {
+//         // The signed-in user info.
+//         const user = result.user
+//       })
+//       .catch((error) => {
+//         // Handle Errors here.
+//         console.log(error)
+//       })
+//   }
+
+//   const signInWithEmail = (email, password) => {
+//     signInWithEmailAndPassword(auth, email, password)
+//       .then((userCredential) => {
+//         // Signed in
+//         const user = userCredential.user
+//       })
+//       .catch((error) => {
+//         console.log(error)
+//       })
+//   }
+
+//   const createUser = async (email, password) => {
+//     try {
+//       let userCredential = await createUserWithEmailAndPassword(
+//         auth,
+//         email,
+//         password
+//       )
+//     } catch (err) {
+//       alert(err.message)
+//     }
+//   }
+
+//   return {
+//     sendPasswordReset,
+//     signOutUser,
+//     signInWithGoogle,
+//     signInWithEmail,
+//     createUser,
+//   }
+// }
+
+// export default AuthContext
