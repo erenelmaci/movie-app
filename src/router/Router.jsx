@@ -16,7 +16,7 @@ const Router = () => {
         <Route exact path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/movie-detail" element={<MovieDetail />} />
+        <Route exact path="/movie-detail/:id" element={<MovieDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
