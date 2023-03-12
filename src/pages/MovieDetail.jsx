@@ -55,10 +55,7 @@ const MovieDetail = () => {
                   <h4>Total Vote:</h4>
                   <p>{detailMovie.vote_count}</p>
                 </div>
-                <Link
-                  className="text-warning"
-                  onClick={() => navigate(-1, { replace: false })}
-                >
+                <Link className="text-warning" onClick={() => navigate(-1)}>
                   Go Back
                 </Link>
               </div>
