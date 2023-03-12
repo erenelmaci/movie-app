@@ -26,7 +26,6 @@
   text-decoration: none;
 }
 
-
 .cover {
   top: 0;
   position: absolute;
@@ -60,15 +59,15 @@
   -ms-transform: rotatey(-81deg);
   transform: rotatey(-81deg);
 }
-p {
+.comment > p {
   padding-top: 1rem;
   border-radius: 10px;
   padding-left: 2rem;
   padding-right: 1rem;
   font-weight: bolder;
 }
-h4 {
-  padding-top: .5rem;
+.comment > h4 {
+  padding-top: 0.5rem;
   padding-left: 1rem;
   text-align: center;
 }
@@ -88,10 +87,10 @@ h4 {
   height: 25rem;
   border-radius: 10px;
 }
-.overview{
+.overview {
   max-width: 15rem;
   max-height: 20rem;
 }
-.card-container{
+.card-container {
   width: fit-content;
 }

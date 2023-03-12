@@ -34,17 +34,17 @@ const MovieDetail = () => {
           <Col className="w-100 flex-wrap" xs={1} lg={6} md={8}>
             <div
               style={{ backgroundColor: "rgba(57, 61, 66, 0.39)" }}
-              className="rounded-5 container"
+              className="rounded-5 movie-detail-container"
             >
               <img
-                className="rounded-4 m-5"
+                className="poster-card rounded-4 m-5"
                 src={`https://image.tmdb.org/t/p/w780/${detailMovie.poster_path}`}
                 alt="poster path"
               />
               <div className="text-white">
                 <h1>Overview</h1>
-                <div className="text-container">
-                  <p className="">{detailMovie.overview}</p>
+                <div className="movie-detail-text-container">
+                  <p className="movie-detail-p">{detailMovie.overview}</p>
                   <div className="d-flex">
                     <h4>Relase Date:</h4>
                     <p className="text-center">{detailMovie.release_date}</p>

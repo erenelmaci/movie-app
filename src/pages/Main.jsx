@@ -6,11 +6,13 @@ import { Button } from "react-bootstrap"
 import Form from "react-bootstrap/Form"
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/MovieCard.css"
+import Loading from "./Loading"
 
 const Main = () => {
   const [movies, setMovies] = useState([])
   const [movieQuery, setMovieQuery] = useState("")
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -24,6 +26,7 @@ const Main = () => {
     } catch (error) {
       console.log(error)
     }
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -37,6 +40,7 @@ const Main = () => {
       } catch (error) {
         console.log(error)
       }
+      setLoading(false)
     }
     fetchData()
   }, [])
@@ -63,25 +67,37 @@ const Main = () => {
           Search
         </Button>
       </form>
-      <div className="card-container d-flex justify-content-center align-items-center">
-        <Row xs={1} md={2} lg={3} xl={5} xxl={5} className="card-container g-4">
-          {movies.map((movie) => (
-            <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
-              <Col
-                className="d-flex justify-content-center align-items-center"
-                key={movie.id}
-              >
-                <MovieCard
-                  poster={movie.poster_path}
-                  overview={movie.overview}
-                  title={movie.title}
-                  id={movie.id}
-                />
-              </Col>
-            </Link>
-          ))}
-        </Row>
-      </div>
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="card-container d-flex justify-content-center align-items-center">
+          <Row
+            xs={1}
+            md={2}
+            lg={3}
+            xl={5}
+            xxl={5}
+            className="card-container g-4"
+          >
+            {movies.map((movie) => (
+              <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
+                <Col
+                  className="d-flex justify-content-center align-items-center"
+                  key={movie.id}
+                >
+                  <MovieCard
+                    poster={movie.poster_path}
+                    overview={movie.overview}
+                    title={movie.title}
+                    id={movie.id}
+                  />
+                </Col>
+              </Link>
+            ))}
+          </Row>
+        </div>
+      )}
     </>
   )
 }
