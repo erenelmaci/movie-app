@@ -1,0 +1,41 @@
+.bg-div {
+  background-color: rgba(57, 61, 66, 0.39);
+}
+img{
+    width: 20rem;
+    height: 30rem;
+}
+.text-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+p{
+    text-align: left;
+    display: flex;
+    padding: 0;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    
+}
+h4{
+    
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+  .text-wrap {
+    flex-wrap: wrap;
+  }
+  .container{
+    flex-direction: column;
+  }
+  .text-wrap .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+}

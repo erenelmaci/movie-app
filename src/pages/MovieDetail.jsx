@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import "../styles/MovieDetail.css"
 
 const MovieDetail = () => {
   const { id } = useParams()
@@ -30,32 +31,34 @@ const MovieDetail = () => {
           style={{ textAlign: "left" }}
           className="justify-content-center mt-5"
         >
-          <Col className="w-100" md={8}>
+          <Col className="w-100 flex-wrap" xs={1} lg={6} md={8}>
             <div
-              style={{ backgroundColor: "rgba(58, 66, 77, 0.548)" }}
-              className="rounded-5 d-flex"
+              style={{ backgroundColor: "rgba(57, 61, 66, 0.39)" }}
+              className="rounded-5 container"
             >
               <img
-                className="w-25 rounded-4 m-5"
+                className="rounded-4 m-5"
                 src={`https://image.tmdb.org/t/p/w780/${detailMovie.poster_path}`}
                 alt="poster path"
               />
-              <div className="text-white m-5">
+              <div className="text-white">
                 <h1>Overview</h1>
-                <p className="w-75">{detailMovie.overview}</p>
-                <div className="d-flex">
-                  <h4>Relase Date:</h4>
-                  <p className="text-center">{detailMovie.release_date}</p>
+                <div className="text-container">
+                  <p className="">{detailMovie.overview}</p>
+                  <div className="d-flex">
+                    <h4>Relase Date:</h4>
+                    <p className="text-center">{detailMovie.release_date}</p>
+                  </div>
+                  <div className="d-flex">
+                    <h4>Rate:</h4>
+                    <p>{detailMovie.vote_average}</p>
+                  </div>
+                  <div className="d-flex">
+                    <h4>Total Vote:</h4>
+                    <p>{detailMovie.vote_count}</p>
+                  </div>
                 </div>
-                <div className="d-flex">
-                  <h4>Rate:</h4>
-                  <p>{detailMovie.vote_average}</p>
-                </div>
-                <div className="d-flex">
-                  <h4>Total Vote:</h4>
-                  <p>{detailMovie.vote_count}</p>
-                </div>
-                <Link className="text-warning" onClick={() => navigate(-1)}>
+                <Link className="text-warning h3" onClick={() => navigate(-1)}>
                   Go Back
                 </Link>
               </div>
