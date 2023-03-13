@@ -1,12 +1,9 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
 import { signInWithEmail, signInWithGoogle } from "../auth/firebase"
-
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {
-  // const { setUser } = useContext(UserContext)
-
   const navigate = useNavigate()
 
   const handleClickGoogle = (e) => {

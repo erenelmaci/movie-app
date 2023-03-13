@@ -2,10 +2,8 @@ import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
 import { signInWithGoogle } from "../auth/firebase"
 import { useNavigate } from "react-router-dom"
-// import firebase from "firebase/app"
 import "firebase/auth"
 import { FirebaseError } from "firebase/app"
-// import { auth, createUserWithEmailAndPassword } from "firebase/auth"
 
 const Register = () => {
   const navigate = useNavigate()
@@ -15,12 +13,10 @@ const Register = () => {
     FirebaseError.auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Yeni kullanıcı hesabı oluşturuldu
         const user = userCredential.user
         console.log(`Yeni kullanıcı oluşturuldu: ${user.email}`)
       })
       .catch((error) => {
-        // Hata mesajı göster
         console.log(error);
       })
   }

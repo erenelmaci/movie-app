@@ -25,7 +25,6 @@ const Main = () => {
     try {
       const response = await axios.get(URL)
       setMovies(response.data.results)
-      console.log(response.data.results)
       navigate(`?search=${movieQuery}`)
     } catch (error) {
       console.log(error)
@@ -43,7 +42,6 @@ const Main = () => {
       try {
         const response = await axios.get(URL)
         setMovies(response.data.results)
-        console.log(response.data)
       } catch (error) {
         console.log(error)
       }

@@ -9,7 +9,6 @@ import { UserContext } from "../context/AuthContext"
 
 const Header = () => {
   const { myUser, setMyUser } = useContext(UserContext)
-  console.log(myUser)
   // const navigate = Navigate()
   const handleLogoutClick = () => {
     auth

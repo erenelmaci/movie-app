@@ -16,7 +16,6 @@ const MovieDetail = () => {
       try {
         const detailQuery = (await axios.get(URL)).data
         setDetailMovie(detailQuery)
-        console.log(detailQuery)
       } catch (error) {
         console.log(error)
       }
