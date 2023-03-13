@@ -4,15 +4,19 @@ import { Col, Row } from "react-bootstrap"
 import MovieCard from "../components/MovieCard"
 import { Button } from "react-bootstrap"
 import Form from "react-bootstrap/Form"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "../styles/MovieCard.css"
 import Loading from "./Loading"
+import { UserContext } from "../context/AuthContext"
+import { useContext } from "react"
 
 const Main = () => {
   const [movies, setMovies] = useState([])
   const [movieQuery, setMovieQuery] = useState("")
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
+
+  const { user } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -27,6 +31,9 @@ const Main = () => {
       console.log(error)
     }
     setLoading(false)
+  }
+  const handleCardClick = (movie) => {
+    user ? navigate(`/movie-detail/${movie.id}`) : navigate("/login")
   }
 
   useEffect(() => {
@@ -81,19 +88,20 @@ const Main = () => {
             className="card-container g-4"
           >
             {movies.map((movie) => (
-              <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
-                <Col
-                  className="d-flex justify-content-center align-items-center"
-                  key={movie.id}
-                >
-                  <MovieCard
-                    poster={movie.poster_path}
-                    overview={movie.overview}
-                    title={movie.title}
-                    id={movie.id}
-                  />
-                </Col>
-              </Link>
+              // <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
+              <Col
+                className="d-flex justify-content-center align-items-center"
+                key={movie.id}
+                onClick={() => handleCardClick(movie)}
+              >
+                <MovieCard
+                  poster={movie.poster_path}
+                  overview={movie.overview}
+                  title={movie.title}
+                  id={movie.id}
+                />
+              </Col>
+              // </Link>
             ))}
           </Row>
         </div>

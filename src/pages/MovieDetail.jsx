@@ -37,7 +37,7 @@ const MovieDetail = () => {
               className="rounded-5 movie-detail-container"
             >
               <img
-                className="poster-card rounded-4 m-5"
+                className="movie-detail-poster-card rounded-4 m-5"
                 src={`https://image.tmdb.org/t/p/w780/${detailMovie.poster_path}`}
                 alt="poster path"
               />

@@ -1,7 +1,7 @@
 .bg-div {
   background-color: rgba(57, 61, 66, 0.39);
 }
-img > .poster-card {
+.movie-detail-poster-card {
   width: 20rem;
   height: 30rem;
 }

@@ -1,9 +1,32 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
-
+import { signInWithGoogle } from "../auth/firebase"
+import { useContext } from "react"
+import { UserContext } from "../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
-  const handleClick = (e) => {
+  const { setUser } = useContext(UserContext)
+
+  const navigate = useNavigate()
+
+  const handleClickGoogle = async (e) => {
+    e.preventDefault()
+    try {
+      await signInWithGoogle()
+      setUser(true)
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+      // hata mesajını burada gösterebilirsiniz
+    }
+  }
+  const handleClickApple = (e) => {
+    e.preventDefault()
+    // signInWithGoogle()
+    // setUser(true)
+  }
+  const onSubmit = (e) => {
     e.preventDefault()
   }
   return (
@@ -94,7 +117,7 @@ const Login = () => {
             />
           </div>
           <button
-            onClick={handleClick}
+            onClick={onSubmit}
             title="Sign In"
             type="submit"
             className="sign-in_btn"
@@ -102,12 +125,12 @@ const Login = () => {
             <span>Sign In</span>
           </button>
           <div className="separator">
-            <hr/>
+            <hr />
             <span>Or</span>
-            <hr/>
+            <hr />
           </div>
           <button
-            onClick={handleClick}
+            onClick={handleClickGoogle}
             title="Sign In"
             type="submit"
             className="sign-in_ggl"
@@ -116,7 +139,7 @@ const Login = () => {
             <span>Sign In with Google</span>
           </button>
           <button
-            onClick={handleClick}
+            onClick={handleClickApple}
             title="Sign In"
             type="submit"
             className="sign-in_apl"
