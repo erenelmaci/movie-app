@@ -78,7 +78,7 @@ const Main = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="card-container d-flex justify-content-center align-items-center">
+        <div className="card-container">
           <Row
             xs={1}
             md={2}
@@ -88,7 +88,6 @@ const Main = () => {
             className="card-container g-4"
           >
             {movies.map((movie) => (
-              // <Link key={movie.id} to={`/movie-detail/${movie.id}`}>
               <Col
                 className="d-flex justify-content-center align-items-center"
                 key={movie.id}
@@ -101,7 +100,6 @@ const Main = () => {
                   id={movie.id}
                 />
               </Col>
-              // </Link>
             ))}
           </Row>
         </div>
