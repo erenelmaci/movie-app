@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth"
 
 const firebaseConfig = {
@@ -45,13 +46,21 @@ export const userObserver = async (setMyUser) => {
 
 export const signOutUser = () => {
   signOut(auth)
-    .then(() => {
-      // Sign-out successful.
+    .then(() => {})
+    .catch((error) => {})
+}
+
+export const signInWithEmail = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user
+      console.log(user);
     })
     .catch((error) => {
-      // An error happened.
+      console.log(error)
     })
 }
+
 // const sendPasswordReset = (email) => {
 //   sendPasswordResetEmail(auth, email)
 //     .then(() => {
@@ -61,28 +70,4 @@ export const signOutUser = () => {
 //       const errorMessage = error.message
 //       // ..
 //     })
-// }
-
-
-// const signInWithEmail = (email, password) => {
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       const user = userCredential.user
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//     })
-// }
-
-// const createUser = async (email, password) => {
-//   try {
-//     let userCredential = await createUserWithEmailAndPassword(
-//       auth,
-//       email,
-//       password
-//     )
-//   } catch (err) {
-//     alert(err.message)
-//   }
 // }

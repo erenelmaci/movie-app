@@ -1,9 +1,32 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
+import { signInWithGoogle } from "../auth/firebase"
+import { useNavigate } from "react-router-dom"
+// import firebase from "firebase/app"
+import "firebase/auth"
+import { FirebaseError } from "firebase/app"
+// import { auth, createUserWithEmailAndPassword } from "firebase/auth"
 
 const Register = () => {
-  const handleClick = (e) => {
+  const navigate = useNavigate()
+
+  const handleClickSignIn = (e, email, password) => {
     e.preventDefault()
+    FirebaseError.auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Yeni kullanıcı hesabı oluşturuldu
+        const user = userCredential.user
+        console.log(`Yeni kullanıcı oluşturuldu: ${user.email}`)
+      })
+      .catch((error) => {
+        // Hata mesajı göster
+        console.log(error);
+      })
+  }
+  const handleClickGoogle = (e) => {
+    e.preventDefault()
+    signInWithGoogle(navigate)
   }
   return (
     <>
@@ -162,7 +185,7 @@ const Register = () => {
             />
           </div>
           <button
-            onClick={handleClick}
+            onClick={handleClickSignIn}
             title="Sign In"
             type="submit"
             className="sign-in_btn"
@@ -175,7 +198,7 @@ const Register = () => {
             <hr />
           </div>
           <button
-            onClick={handleClick}
+            onClick={handleClickGoogle}
             title="Sign In"
             type="submit"
             className="sign-in_ggl"
@@ -184,7 +207,7 @@ const Register = () => {
             <span>Sign In with Google</span>
           </button>
           <button
-            onClick={handleClick}
+            onClick={handleClickSignIn}
             title="Sign In"
             type="submit"
             className="sign-in_apl"

@@ -1,8 +1,7 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
-import { signInWithGoogle } from "../auth/firebase"
-// import { useContext } from "react"
-// import { UserContext } from "../context/AuthContext"
+import { signInWithEmail, signInWithGoogle } from "../auth/firebase"
+
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {
@@ -19,6 +18,7 @@ const Login = () => {
   }
   const onSubmit = (e) => {
     e.preventDefault()
+    signInWithEmail()
   }
   return (
     <>
