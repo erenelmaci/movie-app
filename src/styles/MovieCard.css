@@ -65,7 +65,6 @@
   padding-right: 1rem;
   font-weight: bolder;
   color: rgb(2, 71, 48);
-
   overflow: auto;
 }
 .comment > p::-webkit-scrollbar {
@@ -111,4 +110,5 @@
   align-items: center;
   flex-wrap: wrap;
   margin: auto;
+  padding-bottom: 1rem;
 }
