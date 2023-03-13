@@ -1,12 +1,10 @@
 import { initializeApp } from "firebase/app"
 import {
   getAuth,
-  // createUserWithEmailAndPassword,
-  // signInWithEmailAndPassword,
-  // sendPasswordResetEmail,
-  // signOut,
+  signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  onAuthStateChanged,
 } from "firebase/auth"
 
 const firebaseConfig = {
@@ -19,29 +17,41 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 }
 const app = initializeApp(firebaseConfig)
-console.log(app);
-export const auth = getAuth()
+export const auth = getAuth(app)
 
-const provider = new GoogleAuthProvider()
-
-export const signInWithGoogle = () => {
+export const signInWithGoogle = (navgite) => {
+  const provider = new GoogleAuthProvider()
   signInWithPopup(auth, provider)
     .then((result) => {
-      
-      const name = result.user.displayName
-      const email = result.user.email
-      const profilePic = result.user.photoURL
-      
-      localStorage.setItem("name", name)
-      localStorage.setItem("email", email)
-      localStorage.setItem("ProfilePic", profilePic)
+      navgite("/")
     })
     .catch((error) => {
-      // Handle Errors here.
       console.log(error)
     })
 }
 
+export const userObserver = async (setMyUser) => {
+  await onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const { email, displayName, photoURL } = user
+      setMyUser({ email, displayName, photoURL })
+      console.log(user)
+    } else {
+      setMyUser(false)
+      console.log("user signed out")
+    }
+  })
+}
+
+export const signOutUser = () => {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      // An error happened.
+    })
+}
 // const sendPasswordReset = (email) => {
 //   sendPasswordResetEmail(auth, email)
 //     .then(() => {
@@ -53,15 +63,6 @@ export const signInWithGoogle = () => {
 //     })
 // }
 
-// const signOutUser = () => {
-//   signOut(auth)
-//     .then(() => {
-//       // Sign-out successful.
-//     })
-//     .catch((error) => {
-//       // An error happened.
-//     })
-// }
 
 // const signInWithEmail = (email, password) => {
 //   signInWithEmailAndPassword(auth, email, password)

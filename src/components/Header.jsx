@@ -3,12 +3,22 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import { Link } from "react-router-dom"
+import { auth } from "../auth/firebase"
 import { UserContext } from "../context/AuthContext"
 
 const Header = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { myUser, setMyUser } = useContext(UserContext)
+  // const navigate = Navigate()
   const handleLogoutClick = () => {
-    setUser(false)
+    auth
+      .signOut()
+      .then(() => {
+        setMyUser(false)
+        // navigate("/")
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   return (
@@ -25,7 +35,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/login">
                 Login
               </Nav.Link>
-              {user && (
+              {myUser && (
                 <Nav.Link onClick={handleLogoutClick} as={Link} to="/login">
                   Logout
                 </Nav.Link>

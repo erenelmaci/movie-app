@@ -16,7 +16,7 @@ const Main = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
 
-  const { user } = useContext(UserContext)
+  const { myUser } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -33,7 +33,7 @@ const Main = () => {
     setLoading(false)
   }
   const handleCardClick = (movie) => {
-    user ? navigate(`/movie-detail/${movie.id}`) : navigate("/login")
+    myUser ? navigate(`/movie-detail/${movie.id}`) : navigate("/login")
   }
 
   useEffect(() => {

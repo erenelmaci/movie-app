@@ -1,30 +1,21 @@
 import "../styles/Login.css"
 import googleIcon from "../assets/google.png"
 import { signInWithGoogle } from "../auth/firebase"
-import { useContext } from "react"
-import { UserContext } from "../context/AuthContext"
+// import { useContext } from "react"
+// import { UserContext } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {
-  const { setUser } = useContext(UserContext)
+  // const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
 
-  const handleClickGoogle = async (e) => {
+  const handleClickGoogle = (e) => {
     e.preventDefault()
-    try {
-      await signInWithGoogle()
-      setUser(true)
-      navigate("/")
-    } catch (error) {
-      console.log(error)
-      // hata mesajını burada gösterebilirsiniz
-    }
+    signInWithGoogle(navigate)
   }
   const handleClickApple = (e) => {
     e.preventDefault()
-    // signInWithGoogle()
-    // setUser(true)
   }
   const onSubmit = (e) => {
     e.preventDefault()
