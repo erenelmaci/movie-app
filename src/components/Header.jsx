@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { Image } from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
@@ -8,6 +9,7 @@ import { UserContext } from "../context/AuthContext"
 
 const Header = () => {
   const { myUser, setMyUser } = useContext(UserContext)
+  console.log(myUser)
   // const navigate = Navigate()
   const handleLogoutClick = () => {
     auth
@@ -43,6 +45,14 @@ const Header = () => {
               <Nav.Link as={Link} to="/register" eventKey={2}>
                 Register
               </Nav.Link>
+              {!myUser ? null : (
+                <Image
+                  style={{ width: "3rem" }}
+                  src={myUser.photoURL}
+                  alt="img"
+                  roundedCircle
+                />
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
