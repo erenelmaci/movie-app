@@ -35,7 +35,7 @@ const Header = () => {
             <Nav className="me-auto"></Nav>
             <Nav>
               <Nav.Link as={Link} to="/login">
-                Login
+                {!myUser ? "Login" : null}
               </Nav.Link>
               {myUser && (
                 <Nav.Link onClick={handleLogoutClick} as={Link} to="/login">
@@ -47,7 +47,7 @@ const Header = () => {
               </Nav.Link>
               {!myUser ? null : (
                 <Image
-                  style={{ width: "3rem" }}
+                  style={{ width: "2.5rem" }}
                   src={myUser.photoURL}
                   alt="img"
                   roundedCircle
