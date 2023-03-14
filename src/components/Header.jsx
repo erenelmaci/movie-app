@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import { SlLogin, SlLogout, SlUserFollow } from "react-icons/sl"
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { auth } from "../auth/firebase"
 import { UserContext } from "../context/AuthContext"
 
@@ -38,18 +38,19 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Nav.Link className="fs-5" as={Link} to="/login">
-                <SlLogin />
-                {!myUser ? "Login" : null}
-              </Nav.Link>
+              {!myUser && (
+                <Nav.Link className="fs-5" as={Link} to="/login">
+                  <SlLogin /> Login
+                </Nav.Link>
+              )}
               {myUser && (
                 <Nav.Link onClick={handleLogoutClick} as={Link} to="/login">
                   <SlLogout /> Logout
                 </Nav.Link>
               )}
-              <Nav.Link as={Link} to="/register" eventKey={2}>
+              {!myUser && (<Nav.Link as={Link} to="/register" eventKey={2}>
                 <SlUserFollow /> Register
-              </Nav.Link>
+              </Nav.Link>)}
               {!myUser ? null : (
                 <Image
                   style={{ width: "2.5rem" }}
