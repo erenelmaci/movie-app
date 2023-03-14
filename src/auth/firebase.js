@@ -56,6 +56,7 @@ export const signInWithEmail = (email, password,navgite) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user
+      console.log(user)
     })
     .catch((error) => {
       console.log(error)
@@ -66,6 +67,7 @@ export const createUserWithEmail = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user
+      console.log(user);
     })
     .catch((error) => {
       const errorCode = error.code

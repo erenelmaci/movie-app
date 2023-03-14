@@ -15,8 +15,6 @@ import {
 const Register = () => {
   const navigate = useNavigate()
 
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -54,7 +52,6 @@ const Register = () => {
               name="input-name"
               type="text"
               className="input_field"
-              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className="input_container">
@@ -71,7 +68,6 @@ const Register = () => {
               type="text"
               className="input_field"
               id="email_field"
-              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className="input_container">
