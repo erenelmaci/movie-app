@@ -3,6 +3,7 @@ import {
   getAuth,
   signOut,
   signInWithPopup,
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -36,7 +37,6 @@ export const userObserver = async (setMyUser) => {
     if (user) {
       const { email, displayName, photoURL } = user
       setMyUser({ email, displayName, photoURL })
-      console.log(user)
     } else {
       setMyUser(false)
       console.log("user signed out")
@@ -47,27 +47,29 @@ export const userObserver = async (setMyUser) => {
 export const signOutUser = () => {
   signOut(auth)
     .then(() => {})
-    .catch((error) => {})
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
-export const signInWithEmail = (email, password) => {
+export const signInWithEmail = (email, password,navgite) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user
-      console.log(user);
     })
     .catch((error) => {
       console.log(error)
     })
 }
 
-// const sendPasswordReset = (email) => {
-//   sendPasswordResetEmail(auth, email)
-//     .then(() => {
-//       // Password reset email sent!
-//     })
-//     .catch((error) => {
-//       const errorMessage = error.message
-//       // ..
-//     })
-// }
+export const createUserWithEmail = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user
+    })
+    .catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      alert(errorCode , errorMessage)
+    })
+}
