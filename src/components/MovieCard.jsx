@@ -1,5 +1,4 @@
 import "../styles/MovieCard.css"
-// import unkownMovie from "../assets/unkown-movie.jpg"
 
 const MovieCard = ({ poster, overview, title }) => {
   const moviePosterUrl = `https://image.tmdb.org/t/p/w780/${poster}`

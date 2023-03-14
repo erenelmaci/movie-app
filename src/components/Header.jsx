@@ -3,7 +3,7 @@ import { Image } from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
-import { SlLogin, SlLogout, SlUserFollow } from "react-icons/sl"
+import { SlLogin, SlLogout, SlPeople, SlUserFollow } from "react-icons/sl"
 import { Link } from "react-router-dom"
 import { auth } from "../auth/firebase"
 import { UserContext } from "../context/AuthContext"
@@ -51,7 +51,7 @@ const Header = () => {
               {!myUser && (<Nav.Link as={Link} to="/register" eventKey={2}>
                 <SlUserFollow /> Register
               </Nav.Link>)}
-              {!myUser ? null : (
+              {!myUser ? <SlPeople/> : (
                 <Image
                   style={{ width: "2.5rem" }}
                   src={myUser.photoURL}
