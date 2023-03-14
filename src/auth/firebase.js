@@ -52,14 +52,15 @@ export const signOutUser = () => {
     })
 }
 
-export const signInWithEmail = (email, password,navgite) => {
+export const signInWithEmail = (email, password, navgite) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user
       console.log(user)
+      navgite("/")
     })
     .catch((error) => {
-      console.log(error)
+      alert("Hatalı Giriş Yaptınız")
     })
 }
 
@@ -67,11 +68,11 @@ export const createUserWithEmail = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user
-      console.log(user);
+      console.log(user)
     })
     .catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message
-      alert(errorCode , errorMessage)
+      alert(errorCode, errorMessage)
     })
 }

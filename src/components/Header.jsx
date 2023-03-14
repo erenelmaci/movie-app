@@ -3,8 +3,8 @@ import { Image } from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
-import { SlLogin, SlLogout, SlPeople, SlUserFollow } from "react-icons/sl"
-import { Link } from "react-router-dom"
+import { SlLogin, SlLogout, SlUser, SlUserFollow } from "react-icons/sl"
+import { Link, NavLink } from "react-router-dom"
 import { auth } from "../auth/firebase"
 import { UserContext } from "../context/AuthContext"
 
@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <>
       <Navbar
-        className="fs-6"
+        className="fs-7"
         collapseOnSelect
         expand="lg"
         bg="dark"
@@ -37,7 +37,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
-            <Nav>
+            <Nav className="text-white">
               {!myUser && (
                 <Nav.Link as={Link} to="/login">
                   <SlLogin /> Login
@@ -48,16 +48,22 @@ const Header = () => {
                   <SlLogout /> Logout
                 </Nav.Link>
               )}
-              {!myUser && (<Nav.Link as={Link} to="/register" eventKey={2}>
-                <SlUserFollow /> Register
-              </Nav.Link>)}
-              {!myUser ? <SlPeople/> : (
+              {!myUser && (
+                <Nav.Link as={Link} to="/register" eventKey={2}>
+                  <SlUserFollow /> Register
+                </Nav.Link>
+              )}
+              {myUser ? (
                 <Image
                   style={{ width: "2.5rem" }}
                   src={myUser.photoURL}
                   alt="img"
                   roundedCircle
                 />
+              ) : (
+                <NavLink className="text-white m-1">
+                  <SlUser size={24} />
+                </NavLink>
               )}
             </Nav>
           </Navbar.Collapse>
