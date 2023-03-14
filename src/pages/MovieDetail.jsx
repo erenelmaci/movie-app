@@ -44,17 +44,17 @@ const MovieDetail = () => {
                 <h1>Overview</h1>
                 <div className="movie-detail-text-container">
                   <p className="movie-detail-p">{detailMovie.overview}</p>
-                  <div className="d-flex">
+                  <div className="d-flex justify-content-center align-items-center detail-commit">
                     <h4>Relase Date:</h4>
-                    <p className="text-center">{detailMovie.release_date}</p>
+                    <p className="ml-2 mb-0">{detailMovie.release_date}</p>
                   </div>
                   <div className="d-flex">
                     <h4>Rate:</h4>
-                    <p>{detailMovie.vote_average}</p>
+                    <p className="ml-2 mb-0">{detailMovie.vote_average}</p>
                   </div>
                   <div className="d-flex">
                     <h4>Total Vote:</h4>
-                    <p>{detailMovie.vote_count}</p>
+                    <p className="ml-2 mb-0">{detailMovie.vote_count}</p>
                   </div>
                 </div>
                 <Link className="text-warning h3" onClick={() => navigate(-1)}>

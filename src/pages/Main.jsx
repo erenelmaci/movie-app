@@ -4,7 +4,8 @@ import { Col, Row } from "react-bootstrap"
 import MovieCard from "../components/MovieCard"
 import { Button } from "react-bootstrap"
 import Form from "react-bootstrap/Form"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
+import qs from "qs"
 import "../styles/MovieCard.css"
 import Loading from "./Loading"
 import { UserContext } from "../context/AuthContext"
@@ -14,6 +15,7 @@ const Main = () => {
   const [movies, setMovies] = useState([])
   const [movieQuery, setMovieQuery] = useState("")
   const navigate = useNavigate()
+  const location = useLocation()
   const [loading, setLoading] = useState(true)
 
   const { myUser } = useContext(UserContext)
@@ -31,6 +33,7 @@ const Main = () => {
     }
     setLoading(false)
   }
+
   const handleCardClick = (movie) => {
     myUser ? navigate(`/movie-detail/${movie.id}`) : navigate("/login")
   }
@@ -38,7 +41,12 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const theMovieApiKey = process.env.REACT_APP_THEMOVIE_API_KEY
-      const URL = `https://api.themoviedb.org/3/discover/movie?api_key=${theMovieApiKey}`
+      const query = qs.parse(location.search, {
+        ignoreQueryPrefix: true,
+      }).search
+      const URL = query
+        ? `https://api.themoviedb.org/3/search/movie?api_key=${theMovieApiKey}&query=${query}`
+        : `https://api.themoviedb.org/3/discover/movie?api_key=${theMovieApiKey}`
       try {
         const response = await axios.get(URL)
         setMovies(response.data.results)
@@ -48,7 +56,7 @@ const Main = () => {
       setLoading(false)
     }
     fetchData()
-  }, [])
+  }, [location])
 
   return (
     <>

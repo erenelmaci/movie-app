@@ -61,7 +61,7 @@ const Header = () => {
                   roundedCircle
                 />
               ) : (
-                <NavLink className="text-white m-1">
+                <NavLink to="/login" className="text-white m-1">
                   <SlUser size={24} />
                 </NavLink>
               )}

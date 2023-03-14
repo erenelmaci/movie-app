@@ -12,12 +12,14 @@
   flex-direction: column;
   margin-top: 1rem;
 }
-p > .movie-detail-p {
-  text-align: left;
+.movie-detail-text-container p,
+.movie-detail-text-container h4 {
   display: flex;
-  padding: 0;
-  margin-top: 1rem;
-  margin-left: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.movie-detail-text-container p {
+  margin-left: 0.5rem;
 }
 .movie-detail-container {
   display: flex;
