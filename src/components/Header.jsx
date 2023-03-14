@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <>
       <Navbar
-        className="fs-5"
+        className="fs-6"
         collapseOnSelect
         expand="lg"
         bg="dark"
@@ -39,7 +39,7 @@ const Header = () => {
             <Nav className="me-auto"></Nav>
             <Nav>
               {!myUser && (
-                <Nav.Link className="fs-5" as={Link} to="/login">
+                <Nav.Link as={Link} to="/login">
                   <SlLogin /> Login
                 </Nav.Link>
               )}
