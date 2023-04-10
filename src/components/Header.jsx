@@ -31,7 +31,7 @@ const Header = () => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand data-test="movieHeader" as={Link} to="/">
             React Movie App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

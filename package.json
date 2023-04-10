@@ -10,6 +10,7 @@
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "firebase": "^9.17.2",
+    "next": "^13.2.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^12.9.0"
   }
 }
